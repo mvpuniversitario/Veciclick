@@ -6,10 +6,17 @@
     <meta name="theme-color" content="#2346B5" />
     <meta name="description" content="Demo de VeciClick: el vecino escribe por WhatsApp, la tienda confirma, cobra y despacha. Pruébala sin registrarte." />
     <title>VeciClick · Demo: tu WhatsApp de tienda, en orden y cobrado</title>
-    <link rel="icon" type="image/png" href="./brand/isotipo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" href="./isotipo.png" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        var fix = function (v) { return typeof v === 'string' ? v.replace('./brand/', './') : v; };
+        var d = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+        Object.defineProperty(HTMLImageElement.prototype, 'src', { configurable: true, get: function () { return d.get.call(this); }, set: function (v) { d.set.call(this, fix(v)); } });
+        var sa = Element.prototype.setAttribute;
+        Element.prototype.setAttribute = function (k, v) { return sa.call(this, k, k === 'src' ? fix(v) : v); };
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
